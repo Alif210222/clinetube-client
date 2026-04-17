@@ -11,7 +11,7 @@ import { getPricingMovies } from "@/src/services/home-pricing/pricing";
 export default function PricingSection() {
   const [movies, setMovies] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-  const [order, setOrder] = useState("desc");
+  const [order, setOrder] = useState("asc");
 
   const loadData = async (sortType: string) => {
     setLoading(true);
@@ -30,7 +30,7 @@ export default function PricingSection() {
   }, [order]);
 
   const handleToggle = () => {
-    setOrder(order === "desc" ? "asc" : "desc");
+    setOrder(order === "asc" ? "desc" : "asc");
   };
 
   return (
@@ -65,15 +65,15 @@ export default function PricingSection() {
             </p>
           </div>
 
-          {/* <Button
+          <Button
             onClick={handleToggle}
             className="bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90"
           >
             <ArrowUpDown className="w-4 h-4 mr-2" />
-            {order === "desc"
+            {order === "asc"
               ? "Low to High"
               : "High to Low"}
-          </Button> */}
+          </Button>
         </div>
 
         {/* Cards */}

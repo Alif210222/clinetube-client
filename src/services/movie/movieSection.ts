@@ -33,7 +33,7 @@ export const getAllMovies = async (query?: FieldValues) => {
 export const getFreeMovies = async () => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/movie?price=0&limit=20`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/movie?priceType=FREE&price=0&limit=20`,
       {
         cache: "no-store",
       }
