@@ -1,4 +1,6 @@
 import HeroSection from "@/src/component/home/hero-section";
+import PricingSection from "@/src/component/home/pricing";
+
 import TopRatedMovies from "@/src/component/home/top-rated-movies";
 
 import SectionLoader from "@/src/component/shared/section-loader";
@@ -11,6 +13,7 @@ export default function Home() {
 
           <Suspense fallback={<SectionLoader />}>
         <TopRatedMovies />
+        <PricingSection></PricingSection>
       </Suspense>
          
     </h1>

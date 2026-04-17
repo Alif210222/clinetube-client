@@ -28,3 +28,20 @@ export const getAllMovies = async (query?: FieldValues) => {
     console.log(error);
   }
 };
+
+// free movies section in home page
+export const getFreeMovies = async () => {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/movie?price=0&limit=20`,
+      {
+        cache: "no-store",
+      }
+    );
+
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
