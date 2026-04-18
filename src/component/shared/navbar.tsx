@@ -79,9 +79,11 @@ export default function Navbar() {
 
           <NavLink href="/">Home</NavLink>
           <NavLink href="/movies">Movies</NavLink>
-          <NavLink href="/series">Series</NavLink>
+         <NavLink href="/pricing">Pricing</NavLink>
           <NavLink href="/watchlist">Watchlist</NavLink>
-          <NavLink href="/pricing">Pricing</NavLink>
+         
+          <NavLink href="/aboutPage">About</NavLink>
+
 
           {/* Theme Toggle */}
           <Button

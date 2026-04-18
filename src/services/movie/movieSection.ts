@@ -45,3 +45,29 @@ export const getFreeMovies = async () => {
     console.log(error);
   }
 };
+
+
+// movie page  services
+
+export const getMovies = async (query?: Record<string, any>) => {
+  try {
+    const params = new URLSearchParams();
+
+    if (query?.search) params.append("search", query.search);
+    if (query?.genre) params.append("genre", query.genre);
+    if (query?.platform) params.append("platform", query.platform);
+    if (query?.page) params.append("page", query.page);
+    if (query?.limit) params.append("limit", query.limit);
+
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/movie?${params.toString()}`,
+      {
+        cache: "no-store",
+      }
+    );
+
+    return await res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
