@@ -71,3 +71,35 @@ export const getMovies = async (query?: Record<string, any>) => {
     console.log(error);
   }
 };
+
+export const getSingleMovie = async (slug: string) => {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/movie/${slug}`,
+      {
+        cache: "no-store",
+       // credentials: "include",
+      }
+    );
+
+    return await res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getRelatedMovies = async (genre: string) => {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/movie?genre=${genre}&limit=4`,
+      {
+        cache: "no-store",
+         //credentials: "include",
+      }
+    );
+
+    return await res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
