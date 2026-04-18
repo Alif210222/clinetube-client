@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "../component/shared/theme-provider";
+import { Toaster } from "sonner";
 
 
 
@@ -37,7 +38,7 @@ export default function RootLayout({
 
          
         </div>
-     
+     <Toaster></Toaster>
       </body>
     </html>
   );

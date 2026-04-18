@@ -21,8 +21,10 @@ import {
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-//import { getUser, UserLogOut } from "@/services/auth";
 import { useTheme } from "next-themes";
+import { getCurrentUser, logoutUser } from "@/src/services/auth/auth";
+
+
 
 /* ================== USER TYPE ================== */
 
@@ -30,6 +32,7 @@ type UserRole = "USER" | "ADMIN";
 
 interface User {
   name: string;
+  email: string;
   role: UserRole;
 }
 
@@ -37,26 +40,33 @@ interface User {
 
 export default function Navbar() {
   const [user, setUser] = useState<User | null>(null);
+
   const router = useRouter();
 
   const { theme, setTheme } = useTheme();
 
   /* get current user */
-//   useEffect(() => {
-//     const getCurrentUser = async () => {
-//       const userData = await getUser();
-//       setUser(userData);
-//     };
+  useEffect(() => {
+    const fetchUser = async () => {
+      const data = await getCurrentUser();
 
-//     getCurrentUser();
-//   }, []);
+      if (data) {
+        setUser(data);
+      }
+    };
+
+    fetchUser();
+  }, []);
 
   /* logout */
-//   const handleLogout = async () => {
-//     await UserLogOut();
-//     setUser(null);
-//     router.push("/login");
-//   };
+  const handleLogout = async () => {
+    await logoutUser();
+
+    setUser(null);
+
+    router.push("/login");
+    router.refresh();
+  };
 
   return (
     <nav className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
@@ -79,11 +89,9 @@ export default function Navbar() {
 
           <NavLink href="/">Home</NavLink>
           <NavLink href="/movies">Movies</NavLink>
-         <NavLink href="/pricing">Pricing</NavLink>
+          <NavLink href="/pricing">Pricing</NavLink>
           <NavLink href="/watchlist">Watchlist</NavLink>
-         
           <NavLink href="/aboutPage">About</NavLink>
-
 
           {/* Theme Toggle */}
           <Button
@@ -101,7 +109,7 @@ export default function Navbar() {
           </Button>
 
           {/* Auth */}
-          {!user && (
+          {!user ? (
             <>
               <Link href="/login">
                 <Button
@@ -118,14 +126,12 @@ export default function Navbar() {
                 </Button>
               </Link>
             </>
-          )}
-
-          {/* {user && (
+          ) : (
             <UserDropdown
               user={user}
               onLogout={handleLogout}
             />
-          )} */}
+          )}
         </div>
 
         {/* Mobile */}
@@ -162,11 +168,11 @@ export default function Navbar() {
 
                 <Link href="/">Home</Link>
                 <Link href="/movies">Movies</Link>
-                <Link href="/series">Series</Link>
                 <Link href="/watchlist">Watchlist</Link>
                 <Link href="/pricing">Pricing</Link>
+                <Link href="/aboutPage">About</Link>
 
-                {!user && (
+                {!user ? (
                   <>
                     <Link href="/login">
                       <Button
@@ -183,11 +189,15 @@ export default function Navbar() {
                       </Button>
                     </Link>
                   </>
-                )}
-
-                {user && (
+                ) : (
                   <>
-                    <Link href="/profile">Profile</Link>
+                    <Link href="/profile">
+                      Profile
+                    </Link>
+
+                    {user.role === "USER" && (
+                      <Link href="/orders">My Orders</Link>
+                    )}
 
                     {user.role === "ADMIN" && (
                       <Link href="/admin/dashboard">
@@ -196,7 +206,7 @@ export default function Navbar() {
                     )}
 
                     <Button
-                      //onClick={}
+                      onClick={handleLogout}
                       variant="destructive"
                     >
                       Logout
@@ -257,8 +267,22 @@ function UserDropdown({
         className="w-48"
       >
         <DropdownMenuItem asChild>
-          <Link href="/profile">Profile</Link>
+          <Link href="/profile">
+            Profile
+          </Link>              
         </DropdownMenuItem>
+
+          {user.role === "USER" && (
+          <>
+            <DropdownMenuItem asChild>
+              <Link className="cursor-pointer" href="/movies">My Orders</Link>
+            </DropdownMenuItem>
+            
+            <DropdownMenuItem asChild>
+              <Link href="/orders">My Orders</Link>
+            </DropdownMenuItem>
+          </>
+        )}
 
         {user.role === "ADMIN" && (
           <DropdownMenuItem asChild>
