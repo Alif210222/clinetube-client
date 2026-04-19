@@ -41,6 +41,8 @@ interface User {
 export default function Navbar() {
   const [user, setUser] = useState<User | null>(null);
 
+  console.log(user);
+
   const router = useRouter();
 
   const { theme, setTheme } = useTheme();

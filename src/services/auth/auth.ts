@@ -63,6 +63,7 @@ export const getCurrentUser = async () => {
     const decoded: any = jwtDecode(token);
 
     return {
+      id:decoded.userId,
       name: decoded.name || decoded.email?.split("@")[0],
       email: decoded.email,
       role: decoded.role,

@@ -78,7 +78,7 @@ export const getSingleMovie = async (slug: string) => {
       `${process.env.NEXT_PUBLIC_BASE_URL}/movie/${slug}`,
       {
         cache: "no-store",
-       // credentials: "include",
+        //credentials: "include",
       }
     );
 
@@ -95,6 +95,7 @@ export const getRelatedMovies = async (genre: string) => {
       {
         cache: "no-store",
          //credentials: "include",
+         
       }
     );
 
