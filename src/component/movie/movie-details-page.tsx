@@ -9,6 +9,7 @@ import {
   Clapperboard,
 } from "lucide-react";
 import { getSingleMovie,getRelatedMovies } from "@/src/services/movie/movieSection";
+import MovieReviewSection from "./movie-review-section";
 
 
 
@@ -155,8 +156,11 @@ export default async function MovieDetailsPage({
         </section>
       )}
 
+      
+      
+
       {/* Related Movies */}
-      <section className="container mx-auto px-4 mt-24 relative z-10">
+      {/* <section className="container mx-auto px-4 mt-24 relative z-10">
 
         <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-8">
           Related Movies
@@ -199,7 +203,10 @@ export default async function MovieDetailsPage({
             ))}
 
         </div>
-      </section>
+      </section> */}
+
+      {/* review section  */}
+        <MovieReviewSection movieId={movie.id} />
     </main>
   );
 }
