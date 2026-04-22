@@ -8,8 +8,9 @@ import {
   User,
   Clapperboard,
 } from "lucide-react";
-import { getSingleMovie,getRelatedMovies } from "@/src/services/movie/movieSection";
+import { getSingleMovie } from "@/src/services/movie/movieSection";
 import MovieReviewSection from "./movie-review-section";
+import WatchlistButton from "../watchlist/watchlist-button";
 
 
 
@@ -21,11 +22,14 @@ export default async function MovieDetailsPage({
   const data = await getSingleMovie(slug);
   const movie = data?.data;
 
-  const relatedData = await getRelatedMovies(
-    movie?.genres?.[0] || ""
-  );
 
-  const relatedMovies = relatedData?.data?.data || [];
+ // console.log("from movie details:", movie);
+
+//   const relatedData = await getRelatedMovies(
+//     movie?.genres?.[0] || ""
+//   );
+
+//   const relatedMovies = relatedData?.data?.data || [];
 
   return (
     <main className="relative overflow-hidden pb-24">
@@ -125,10 +129,13 @@ export default async function MovieDetailsPage({
                 </button>
               )}
 
-              <button className="h-14 px-8 rounded-xl border border-slate-300 dark:border-white/10 bg-white/70 dark:bg-white/5 text-slate-900 dark:text-white font-semibold flex items-center gap-2 hover:bg-white/20 transition">
+              {/* <button className="h-14 px-8 rounded-xl border border-slate-300 dark:border-white/10 bg-white/70 dark:bg-white/5 text-slate-900 dark:text-white font-semibold flex items-center gap-2 hover:bg-white/20 transition">
                 <Bookmark className="w-5 h-5" />
                 Save Watchlist
-              </button>
+              </button> */}
+
+               {/* // waychlist button component */}
+              <WatchlistButton movieId={movie.id}></WatchlistButton>
 
             </div>
 

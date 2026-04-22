@@ -1,6 +1,7 @@
 "use client";
 
 import {
+    useCallback,
   useEffect,
   useState,
 } from "react";
@@ -30,26 +31,31 @@ export default function CommentSection({
   const [user, setUser] =
     useState<any>(null);
 
-  const loadComments = async () => {
-    const res =
-      await getComments(reviewId);
+//   const loadComments = async () => {
+//     const res =
+//       await getComments(reviewId);
 
-    setComments(res?.data || []);
-  };
+//     setComments(res?.data || []);
+//   };
 
-  useEffect(() => {
-    loadComments();
+const loadComments = useCallback(async () => {
+   const res = await getComments(reviewId);
+   setComments(res.data || []);
+}, [reviewId]);
 
-    const loadUser =
-      async () => {
-        const me =
-          await getCurrentUser();
+useEffect(() => {
+ loadComments();
+}, []);
 
-        setUser(me);
-      };
+useEffect(() => {
+ const loadUser = async () => {
+   const me = await getCurrentUser();
+   setUser(me);
+ };
+ loadUser();
+}, []);
 
-    loadUser();
-  }, []);
+
 
   const handleAdd =
     async () => {

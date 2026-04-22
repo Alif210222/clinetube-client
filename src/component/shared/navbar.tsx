@@ -92,7 +92,8 @@ export default function Navbar() {
           <NavLink href="/">Home</NavLink>
           <NavLink href="/movies">Movies</NavLink>
           <NavLink href="/pricing">Pricing</NavLink>
-          <NavLink href="/watchlist">Watchlist</NavLink>
+          { user && <NavLink href="/watchlist">Watchlist</NavLink>}
+         
           <NavLink href="/aboutPage">About</NavLink>
 
           {/* Theme Toggle */}
@@ -277,7 +278,7 @@ function UserDropdown({
           {user.role === "USER" && (
           <>
             <DropdownMenuItem asChild>
-              <Link className="cursor-pointer" href="/movies">My Orders</Link>
+              <Link className="cursor-pointer" href="/watchlist">My WatchList</Link>
             </DropdownMenuItem>
             
             <DropdownMenuItem asChild>
