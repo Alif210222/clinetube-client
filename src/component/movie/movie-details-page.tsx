@@ -14,6 +14,7 @@ import { getSingleMovie } from "@/src/services/movie/movieSection";
 import MovieReviewSection from "./movie-review-section";
 import WatchlistButton from "../watchlist/watchlist-button";
 import BuyNowButton from "../payment/buy-now-button";
+import { checkMovieAccess } from "@/src/services/payment/payment";
 
 
 
@@ -23,10 +24,23 @@ export default async function MovieDetailsPage({
 }: {
   slug: string;
 }) {
+
+
   const data = await getSingleMovie(slug);
   const movie = data?.data;
 
 
+   if (!movie) {
+    return <div>Movie Not Found</div>;
+  }
+
+//   console.log("movie >>>>> :", movie);
+
+
+  const access = movie.priceType === "PREMIUM" ? await checkMovieAccess(movie.id): null;
+
+const purchased =
+  access?.purchased;
  
 
 
@@ -118,27 +132,33 @@ export default async function MovieDetailsPage({
             {/* Buttons */}
             <div className="mt-10 flex flex-wrap gap-4">
 
-              {movie.priceType === "FREE" ? (
-                <button className="h-14 px-8 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold flex items-center gap-2 hover:scale-105 transition">
-                  <PlayCircle className="w-5 h-5" />
-                  Watch Now
-                </button>
-              ) : (
-                <BuyNowButton
-                           movieId={movie.id}
-                           price={movie.price}
-                         />
-              )}
+  {movie.priceType === "FREE" ? (
+    <button className="h-14 px-8 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold flex items-center gap-2">
+      <PlayCircle className="w-5 h-5" />
+      Watch Now
+    </button>
+  ) : purchased ? (
+    <>
+      <button className="h-14 px-8 rounded-xl bg-green-600 text-white font-semibold">
+        Purchased ✅
+      </button>
 
-              {/* <button className="h-14 px-8 rounded-xl border border-slate-300 dark:border-white/10 bg-white/70 dark:bg-white/5 text-slate-900 dark:text-white font-semibold flex items-center gap-2 hover:bg-white/20 transition">
-                <Bookmark className="w-5 h-5" />
-                Save Watchlist
-              </button> */}
+      <button className="h-14 px-8 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold flex items-center gap-2">
+        <PlayCircle className="w-5 h-5" />
+        Watch Movie
+      </button>
+    </>
+  ) : (
+    <BuyNowButton
+      movieId={movie.id}
+      price={movie.price}
+      // slug={movie.slug}
+    />
+  )}
 
-               {/* // waychlist button component */}
-              <WatchlistButton movieId={movie.id}></WatchlistButton>
+  <WatchlistButton movieId={movie.id} />
 
-            </div>
+</div>
 
           </div>
 
@@ -164,54 +184,6 @@ export default async function MovieDetailsPage({
         </section>
       )}
 
-      
-      
-
-      {/* Related Movies */}
-      {/* <section className="container mx-auto px-4 mt-24 relative z-10">
-
-        <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-8">
-          Related Movies
-        </h2>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-          {relatedMovies
-            .filter((item: any) => item.slug !== movie.slug)
-            .slice(0, 4)
-            .map((item: any) => (
-              <Link
-                key={item.id}
-                href={`/movies/${item.slug}`}
-                className="rounded-3xl overflow-hidden border border-slate-300 dark:border-white/10 bg-white/80 dark:bg-white/5 backdrop-blur-md shadow-xl hover:-translate-y-2 transition"
-              >
-                <div className="relative h-[320px]">
-
-                  <Image
-                    src={item.poster}
-                    alt={item.title}
-                    fill
-                    className="object-cover"
-                  />
-
-                </div>
-
-                <div className="p-5">
-
-                  <h3 className="font-bold text-slate-900 dark:text-white line-clamp-1">
-                    {item.title}
-                  </h3>
-
-                  <p className="mt-2 text-sm text-slate-500">
-                    {item.platform}
-                  </p>
-
-                </div>
-              </Link>
-            ))}
-
-        </div>
-      </section> */}
 
       {/* review section  */}
         <MovieReviewSection movieId={movie.id} />

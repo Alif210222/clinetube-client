@@ -1,31 +1,28 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 
-export default function SuccessPage() {
-  useEffect(() => {
-    // refetch user profile here
-  }, []);
+export default function PaymentSuccessPage() {
+  const params = useSearchParams();
+
+  const slug =
+    params.get("title");
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="bg-white p-10 rounded-2xl shadow-xl text-center">
-        <h1 className="text-4xl font-bold text-green-600">
-          Payment Successful 🎉
-        </h1>
+    <div className="min-h-screen flex flex-col justify-center items-center gap-6">
 
-        <p className="mt-4">
-          Your premium membership is active.
-        </p>
+      <h1 className="text-4xl font-bold text-green-600">
+        Payment Successful 🎉
+      </h1>
 
-        <Link
-          href="/movies"
-          className="mt-6 inline-block bg-black text-white px-6 py-3 rounded-xl"
-        >
-          Go to Movies
-        </Link>
-      </div>
+      <Link
+        href={`/movies/${slug}`}
+        className="px-8 h-12 rounded-xl bg-pink-600 text-white flex items-center"
+      >
+        Go To Movie
+      </Link>
+
     </div>
   );
 }

@@ -12,6 +12,7 @@ import {
 } from "@/src/services/watchlist/watchlist";
 
 import { getCurrentUser } from "@/src/services/auth/auth";
+import PageLoader from "../shared/page-loader";
 
 export default function WatchlistTable() {
   const [movies, setMovies] = useState<any[]>([]);
@@ -67,7 +68,7 @@ export default function WatchlistTable() {
   if (loading) {
     return (
       <div className="text-center py-20 text-xl">
-        Loading...
+        <PageLoader></PageLoader>
       </div>
     );
   }
