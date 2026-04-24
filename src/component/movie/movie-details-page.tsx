@@ -1,3 +1,5 @@
+
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -11,6 +13,8 @@ import {
 import { getSingleMovie } from "@/src/services/movie/movieSection";
 import MovieReviewSection from "./movie-review-section";
 import WatchlistButton from "../watchlist/watchlist-button";
+import BuyNowButton from "../payment/buy-now-button";
+
 
 
 
@@ -23,13 +27,10 @@ export default async function MovieDetailsPage({
   const movie = data?.data;
 
 
- // console.log("from movie details:", movie);
+ 
 
-//   const relatedData = await getRelatedMovies(
-//     movie?.genres?.[0] || ""
-//   );
 
-//   const relatedMovies = relatedData?.data?.data || [];
+  // console.log("from movie details:", movie);
 
   return (
     <main className="relative overflow-hidden pb-24">
@@ -123,10 +124,10 @@ export default async function MovieDetailsPage({
                   Watch Now
                 </button>
               ) : (
-                <button className="h-14 px-8 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold flex items-center gap-2 hover:scale-105 transition">
-                  <ShoppingBag className="w-5 h-5" />
-                  Buy Now ${movie.price}
-                </button>
+                <BuyNowButton
+                           movieId={movie.id}
+                           price={movie.price}
+                         />
               )}
 
               {/* <button className="h-14 px-8 rounded-xl border border-slate-300 dark:border-white/10 bg-white/70 dark:bg-white/5 text-slate-900 dark:text-white font-semibold flex items-center gap-2 hover:bg-white/20 transition">
