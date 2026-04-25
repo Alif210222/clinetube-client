@@ -111,7 +111,7 @@ export default function RegisterForm() {
 
           <button
             disabled={isSubmitting}
-            className="w-full h-12 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold disabled:opacity-70"
+            className="w-full cursor-pointer h-12 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold disabled:opacity-70"
           >
             {isSubmitting ? "Creating..." : "Register"}
           </button>
@@ -128,7 +128,7 @@ export default function RegisterForm() {
         </p>
 
         <Link href="/">
-          <button className="w-full mt-5 h-12 rounded-xl border border-slate-300 dark:border-white/10">
+          <button className="w-full cursor-pointer mt-5 h-12 rounded-xl border border-slate-300 dark:border-white/10">
             Go Home
           </button>
         </Link>

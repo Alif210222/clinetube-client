@@ -91,7 +91,7 @@ export default function Navbar() {
 
           <NavLink href="/">Home</NavLink>
           <NavLink href="/movies">Movies</NavLink>
-          <NavLink href="/pricing">Pricing</NavLink>
+          
           { user && <NavLink href="/watchlist">Watchlist</NavLink>}
          
           <NavLink href="/aboutPage">About</NavLink>

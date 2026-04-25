@@ -35,14 +35,10 @@ const menus = [
  
   {
     title: "Purchase History",
-    href: "/admin/dashboard/reviews",
+    href: "/admin/dashboard/purchase-history",
     icon: Star,
-  },
-  {
-    title: "Subscriptions History",
-    href: "/admin/dashboard/settings",
-    icon: Tag,
-  },
+  }
+  
 ];
 
 export default function DashboardSidebar({

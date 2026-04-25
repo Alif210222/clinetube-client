@@ -33,7 +33,7 @@ export default function Footer() {
 
             <ul className="space-y-3 text-slate-400">
               <li><Link href="/movies">Movies</Link></li>
-              <li><Link href="/series">Series</Link></li>
+              <li><Link href="/about">About</Link></li>
               <li><Link href="/pricing">Pricing</Link></li>
               <li><Link href="/reviews">Reviews</Link></li>
             </ul>

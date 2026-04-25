@@ -96,7 +96,7 @@ export default function LoginForm() {
 
           <button
             disabled={isSubmitting}
-            className="w-full h-12 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold disabled:opacity-70"
+            className="w-full cursor-pointer h-12 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold disabled:opacity-70"
           >
             {isSubmitting ? "Logging..." : "Login"}
           </button>
@@ -113,7 +113,7 @@ export default function LoginForm() {
         </p>
 
         <Link href="/">
-          <button className="w-full mt-5 h-12 rounded-xl border border-slate-300 dark:border-white/10">
+          <button className="w-full mt-5 h-12 rounded-xl border border-slate-300 dark:border-white/10 cursor-pointer">
             Go Home
           </button>
         </Link>
