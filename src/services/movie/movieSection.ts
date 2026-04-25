@@ -17,9 +17,10 @@ export const getAllMovies = async (query?: FieldValues) => {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/movie?${params.toString()}`,
       {
-        next: {
-          revalidate: 60,
-        },
+        cache: "no-store",
+        // next: {
+        //   revalidate: 60,
+        // },
       }
     );
 

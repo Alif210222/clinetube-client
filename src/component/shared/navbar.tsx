@@ -282,7 +282,7 @@ function UserDropdown({
             </DropdownMenuItem>
             
             <DropdownMenuItem asChild>
-              <Link href="/orders">My Orders</Link>
+              <Link href="/my-purchase">My purchase movie</Link>
             </DropdownMenuItem>
           </>
         )}

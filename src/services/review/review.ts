@@ -27,6 +27,7 @@ export const createReview = async (payload: any) => {
        Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(payload),
+    //credentials: "include",
   });
 
   return res.json();
@@ -52,6 +53,7 @@ export const updateReview = async (
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(payload),
+      //credentials: "include",
     }
   );
 

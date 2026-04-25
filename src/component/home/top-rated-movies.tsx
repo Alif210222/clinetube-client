@@ -10,7 +10,7 @@ export default async function TopRatedMovies() {
     limit: 6,
   });
 
-  console.log(moviesData);
+  //console.log(moviesData);
 
   const movies = moviesData?.data.data || [];
 
