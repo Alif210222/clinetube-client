@@ -40,7 +40,7 @@ export default function ReviewCard({
               onClick={() =>
                 handleDelete(item.id)
               }
-              className="px-4 h-10 rounded-xl bg-red-500 text-white"
+              className="px-4 h-10 rounded-xl bg-red-500 text-white cursor-pointer"
             >
               Delete
             </button>

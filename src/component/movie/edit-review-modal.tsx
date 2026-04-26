@@ -33,7 +33,7 @@ export default function EditReviewModal({
     <>
       <button
         onClick={() => setOpen(true)}
-        className="px-4 h-10 rounded-xl bg-cyan-500 text-white"
+        className="px-4 h-10 rounded-xl bg-cyan-500 text-white cursor-pointer"
       >
         Edit
       </button>

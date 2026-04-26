@@ -65,7 +65,7 @@ export default function MovieReviewSection({
     setLoading(false);
 
     if (res.success) {
-      toast.success("Submitted for approval");
+      toast.success("Review added successfully !");
       setContent("");
       loadReviews();
     } else {
@@ -75,8 +75,8 @@ export default function MovieReviewSection({
 
   // delete review
   const handleDelete = async (id: string) => {
-    const ok = confirm("Delete review?");
-    if (!ok) return;
+    // const ok = confirm("Delete review?");
+    // if (!ok) return;
 
     const res = await deleteReview(id);
 
@@ -120,7 +120,7 @@ export default function MovieReviewSection({
             <button
               onClick={handleSubmit}
               disabled={loading}
-              className="h-12 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 text-white"
+              className="h-12 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 text-white cursor-pointer"
             >
               {loading ? "Posting..." : "Submit"}
             </button>

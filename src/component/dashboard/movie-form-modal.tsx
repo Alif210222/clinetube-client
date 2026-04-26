@@ -128,7 +128,7 @@ export default function MovieFormModal({
         onClick={() =>
           setOpen(true)
         }
-        className="h-12 px-6 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 text-white"
+        className="h-12 px-6 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 text-white cursor-pointer"
       >
         Add Movie
       </button>

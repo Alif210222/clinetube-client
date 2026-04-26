@@ -44,9 +44,9 @@ export default function MovieManagement() {
 
   const handleDelete =
     async (id: string) => {
-      const ok =
-        confirm("Delete movie?");
-      if (!ok) return;
+      // const ok =
+      //   confirm("Delete movie?");
+      // if (!ok) return;
 
       const res =
         await deleteMovie(id);
@@ -120,7 +120,7 @@ export default function MovieManagement() {
                     movie.id
                   )
                 }
-                className="h-11 px-4 rounded-xl bg-red-500 text-white flex items-center gap-2"
+                className="h-11 px-4 rounded-xl bg-red-500 text-white flex items-center gap-2 cursor-pointer"
               >
                 <Trash2 className="w-4 h-4" />
                 Delete

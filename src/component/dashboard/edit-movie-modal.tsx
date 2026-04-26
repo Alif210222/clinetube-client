@@ -80,7 +80,7 @@ export default function EditMovieModal({
         onClick={() =>
           setOpen(true)
         }
-        className="h-11 px-4 rounded-xl bg-cyan-500 text-white"
+        className="h-11 px-4 rounded-xl bg-cyan-500 text-white cursor-pointer"
       >
         Edit
       </button>
