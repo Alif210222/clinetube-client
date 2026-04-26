@@ -37,10 +37,19 @@ export default async function MovieDetailsPage({
 //   console.log("movie >>>>> :", movie);
 
 
-  const access = movie.priceType === "PREMIUM" ? await checkMovieAccess(movie.id): null;
+  let purchased = false;
 
-const purchased =
-  access?.purchased;
+if (movie.priceType === "PREMIUM") {
+  try {
+    const access = await checkMovieAccess(movie.id);
+    purchased = access?.purchased || false;
+  } catch {
+    purchased = false;
+  }
+}
+
+// const purchased =
+//   access?.purchased;
  
 
 

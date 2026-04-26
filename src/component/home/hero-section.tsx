@@ -51,14 +51,14 @@ export default function HeroSection() {
               </Button>
             </Link>
 
-            <Link href="/pricing" className="no-underline">
+            {/* <Link href="" className="no-underline">
               <Button
                 variant="outline"
                 className="h-12 px-7 border-cyan-400/40 text-cyan-600 dark:text-cyan-300 hover:bg-cyan-400/10"
               >
                 Plans
               </Button>
-            </Link>
+            </Link> */}
 
           </div>
 
