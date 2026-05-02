@@ -185,7 +185,7 @@ export default function MovieFormModal({
 
               <div className="md:col-span-2 flex gap-3 mt-2">
 
-                <button className="h-12 px-6 rounded-xl bg-pink-500 text-white">
+                <button className="h-12 px-6 rounded-xl bg-pink-500 text-white cursor-pointer">
                   {loading
                     ? "Uploading..."
                     : "Submit"}
@@ -198,7 +198,7 @@ export default function MovieFormModal({
                       false
                     )
                   }
-                  className="h-12 px-6 rounded-xl border"
+                  className="h-12 px-6 rounded-xl border cursor-pointer"
                 >
                   Cancel
                 </button>

@@ -9,10 +9,12 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@hookform/resolvers": "^5.2.2",
     "axios": "^1.15.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "emailjs": "^5.0.0",
     "framer-motion": "^12.38.0",
     "jwt-decode": "^4.0.0",
     "lucide-react": "^1.8.0",

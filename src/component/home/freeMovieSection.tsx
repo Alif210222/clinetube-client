@@ -67,7 +67,7 @@ export default function FreeMovieSection() {
 
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white">
               Free
-              <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 text-transparent bg-clip-text">
+              <span className="bg-gradient-to-r from-pink-800 via-purple-500 to-cyan-700 text-transparent bg-clip-text">
                 {" "}Movies
               </span>
             </h2>
@@ -85,9 +85,9 @@ export default function FreeMovieSection() {
               size="icon"
               onClick={prevSlide}
               disabled={start === 0}
-              className="rounded-full"
+              className="rounded-full cursor-pointer"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-5 h-5 " />
             </Button>
 
             <Button
@@ -95,9 +95,9 @@ export default function FreeMovieSection() {
               size="icon"
               onClick={nextSlide}
               disabled={start + 3 >= movies.length}
-              className="rounded-full"
+              className="rounded-full border cursor-pointer"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-5 h-5 " />
             </Button>
 
           </div>

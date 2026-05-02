@@ -15,27 +15,15 @@ export default function Page() {
       params.get("reason");
 
     if (
-      reason ===
-      "login-required"
+      reason === "login-required"
     ) {
-      toast.error(
-        "Unauthorized. Login first."
-      );
+      toast.error( "Unauthorized. Login first."); }
+
+    if (reason ==="session-expired") {
+      toast.error("Session expired. Login again." );
     }
 
-    if (
-      reason ===
-      "session-expired"
-    ) {
-      toast.error(
-        "Session expired. Login again."
-      );
-    }
-
-    if (
-      reason ===
-      "invalid-token"
-    ) {
+    if (reason === "invalid-token") {
       toast.error(
         "Invalid session. Login again."
       );

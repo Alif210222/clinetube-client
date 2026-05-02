@@ -17,8 +17,8 @@ export default async function TopRatedMovies() {
   return (
     <section className="py-24 relative overflow-hidden">
       {/* Glow */}
-      <div className="absolute top-10 left-0 w-72 h-72 bg-pink-500/10 blur-[120px] rounded-full" />
-      <div className="absolute bottom-10 right-0 w-72 h-72 bg-cyan-500/10 blur-[120px] rounded-full" />
+      <div className="absolute top-10 left-0 w-72 h-72 bg-pink-500/5 blur-[120px] rounded-full" />
+      <div className="absolute bottom-10 right-0 w-72 h-72 bg-cyan-500/5 blur-[120px] rounded-full" />
 
       <div className="container mx-auto px-4 relative z-10">
 
@@ -35,7 +35,7 @@ export default async function TopRatedMovies() {
 
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white">
               Top Rated
-              <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 text-transparent bg-clip-text">
+              <span className="bg-gradient-to-r from-pink-800 via-purple-500 to-cyan-700 text-transparent bg-clip-text">
                 {" "}Movies
               </span>
             </h2>
@@ -46,14 +46,14 @@ export default async function TopRatedMovies() {
           </div>
 
           <Link href="/movies" className="no-underline">
-            <Button className="bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90">
+            <Button className="bg-gradient-to-r from-pink-600 to-purple-600 hover:opacity-80 cursor-pointer">
               See More
             </Button>
           </Link>
         </div>
 
         {/* Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-7">
 
           {movies.map((movie: any) => (
             <Link
@@ -64,7 +64,7 @@ export default async function TopRatedMovies() {
               <div className="rounded-3xl overflow-hidden border border-slate-300 dark:border-white/10 bg-white/80 dark:bg-white/5 backdrop-blur-md shadow-xl hover:-translate-y-2 transition duration-300">
 
                 {/* Poster */}
-                <div className="relative h-[420px] overflow-hidden">
+                <div className="relative h-[300px] overflow-hidden">
                   <Image
                     src={movie.poster}
                     alt={movie.title}

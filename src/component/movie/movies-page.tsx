@@ -91,7 +91,7 @@ export default async function MoviesPage({
         <MoviePagination
           total={meta?.total || 0}
           page={page}
-          limit={10}
+          limit={8}
           searchParams={searchParams}
         />
 

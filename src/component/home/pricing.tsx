@@ -55,7 +55,7 @@ export default function PricingSection() {
 
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white">
               Pricing
-              <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 text-transparent bg-clip-text">
+              <span className="bg-gradient-to-r from-pink-800 via-purple-500 to-cyan-700 text-transparent bg-clip-text">
                 {" "}Collection
               </span>
             </h2>
@@ -67,7 +67,7 @@ export default function PricingSection() {
 
           <Button
             onClick={handleToggle}
-            className="bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90"
+            className="bg-gradient-to-r from-pink-600 to-purple-600 hover:opacity-80 cursor-pointer"
           >
             <ArrowUpDown className="w-4 h-4 mr-2" />
             {order === "asc"
@@ -87,7 +87,7 @@ export default function PricingSection() {
             ))}
           </div>
         ) : (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-7">
 
             {movies.map((movie) => (
               <div
@@ -96,7 +96,7 @@ export default function PricingSection() {
               >
 
                 {/* Poster */}
-                <div className="relative h-[340px] overflow-hidden">
+                <div className="relative h-[300px] overflow-hidden">
                   <Image
                     src={movie.poster}
                     alt={movie.title}

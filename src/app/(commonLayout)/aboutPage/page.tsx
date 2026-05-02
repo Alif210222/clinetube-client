@@ -197,7 +197,7 @@ export default function AboutPage() {
           </p>
 
          <Link href="/movies" className="cursor-pointer">
-           <button className="mt-8 px-8 py-3 rounded-xl bg-white text-slate-900 font-semibold hover:scale-105 transition">
+           <button className="mt-8 px-8 py-3 rounded-xl bg-white text-slate-900 font-semibold hover:scale-105 transition cursor-pointer">
               Explore Movies
           </button>
           </Link>

@@ -8,11 +8,16 @@ type TokenPayload = {
 
 const publicRoutes = [
   "/",
+  "/aboutPage",
+  "/contact",
+  
   "/login",
   "/register",
   "/movies",
+  
 //   "/movies/:slug",
   "/unauthorized",
+ 
 ];
 
 const adminRoutes = [
@@ -27,12 +32,25 @@ const userRoutes = [
   "/watchlist",
 ];
 
+// function isPublic(pathname: string) {
+//   return publicRoutes.some(
+//     (route) =>
+//       pathname === route ||
+//       pathname.startsWith(route + "/")
+//   );
+// }
+
 function isPublic(pathname: string) {
-  return publicRoutes.some(
-    (route) =>
+  return publicRoutes.some((route) => {
+    if (route === "/") {
+      return pathname === "/";
+    }
+
+    return (
       pathname === route ||
       pathname.startsWith(route + "/")
-  );
+    );
+  });
 }
 
 function matchProtected(
@@ -155,3 +173,8 @@ export function proxy(
     );
   }
 }
+
+
+export const config = {
+  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
+};

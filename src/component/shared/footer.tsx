@@ -17,7 +17,7 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <h2 className="text-3xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 text-transparent bg-clip-text">
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-pink-700 via-purple-500 to-cyan-500 text-transparent bg-clip-text">
               CineVerse
             </h2>
 
@@ -33,9 +33,9 @@ export default function Footer() {
 
             <ul className="space-y-3 text-slate-400">
               <li><Link href="/movies">Movies</Link></li>
-              <li><Link href="/about">About</Link></li>
-              <li><Link href="/pricing">Pricing</Link></li>
-              <li><Link href="/reviews">Reviews</Link></li>
+              <li><Link href="/aboutPage">About</Link></li>
+            
+              
             </ul>
           </div>
 
@@ -46,8 +46,7 @@ export default function Footer() {
             <ul className="space-y-3 text-slate-400">
               <li><Link href="/faq">FAQ</Link></li>
               <li><Link href="/contact">Contact</Link></li>
-              <li><Link href="/privacy">Privacy</Link></li>
-              <li><Link href="/terms">Terms</Link></li>
+             
             </ul>
           </div>
 
@@ -57,21 +56,29 @@ export default function Footer() {
 
             <div className="flex gap-3">
 
+              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
               <div className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-pink-500 transition">
                 <FaFacebookF className="w-5 h-5" />
               </div>
-
-              <div className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-purple-500 transition">
+              </a>
+              
+              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                <div className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-purple-500 transition">
                 <FaInstagram className="w-5 h-5" />
               </div>
-
+              </a>
+              
+              <a href="https://www.X.com" target="_blank" rel="noopener noreferrer">
               <div className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-cyan-500 transition">
                 <FaTwitter className="w-5 h-5" />
               </div>
-
+              </a>
+             
+              <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
               <div className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-red-500 transition">
                 <FaYoutube className="w-5 h-5" />
               </div>
+              </a>
 
             </div>
           </div>

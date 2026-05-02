@@ -1,3 +1,4 @@
+import FAQSection from "@/src/component/home/faq-section";
 import FreeMovieSection from "@/src/component/home/freeMovieSection";
 import HeroSection from "@/src/component/home/hero-section";
 import PricingSection from "@/src/component/home/pricing";
@@ -20,6 +21,8 @@ export default function Home() {
       </Suspense>
 
       <WhyChooseSection></WhyChooseSection>
+
+      <FAQSection></FAQSection>
 
       
          

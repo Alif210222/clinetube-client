@@ -95,6 +95,7 @@ export default function Navbar() {
           { user && <NavLink href="/watchlist">Watchlist</NavLink>}
          
           <NavLink href="/aboutPage">About</NavLink>
+          <NavLink href="/contact">Contact</NavLink>
 
           {/* Theme Toggle */}
           <Button
@@ -117,14 +118,14 @@ export default function Navbar() {
               <Link href="/login">
                 <Button
                   variant="ghost"
-                  className="text-white hover:text-pink-400"
+                  className="text-white hover:text-pink-400 cursor-pointer"
                 >
                   Login
                 </Button>
               </Link>
 
               <Link href="/register">
-                <Button className="bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90">
+                <Button className="bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90 cursor-pointer">
                   Register
                 </Button>
               </Link>
@@ -171,9 +172,8 @@ export default function Navbar() {
 
                 <Link href="/">Home</Link>
                 <Link href="/movies">Movies</Link>
-                <Link href="/watchlist">Watchlist</Link>
-                <Link href="/pricing">Pricing</Link>
                 <Link href="/aboutPage">About</Link>
+                <NavLink href="/contact">Contact</NavLink>
 
                 {!user ? (
                   <>
@@ -199,7 +199,11 @@ export default function Navbar() {
                     </Link>
 
                     {user.role === "USER" && (
-                      <Link href="/orders">My Orders</Link>
+                      <>
+                      <Link className="cursor-pointer" href="/watchlist">My WatchList</Link>
+                       <Link href="/my-purchase">My purchase movie</Link>
+                      </>
+                      
                     )}
 
                     {user.role === "ADMIN" && (
