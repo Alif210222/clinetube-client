@@ -28,15 +28,15 @@ export default function DashboardNavbar({
       {/* Right */}
       <div className="flex items-center gap-3">
 
-        <div className="hidden md:flex items-center gap-2 px-3 h-10 rounded-xl bg-white/5 border border-white/10">
+        {/* <div className="hidden md:flex items-center gap-2 px-3 h-10 rounded-xl bg-white/5 border border-white/10">
           <Search className="w-4 h-4 text-slate-400" />
           <input
             placeholder="Search..."
             className="bg-transparent outline-none text-sm text-white"
           />
-        </div>
+        </div> */}
 
-        <button aria-label="Notifications" className="relative h-10 w-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+        {/* <button aria-label="Notifications" className="relative h-10 w-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
           <Bell className="w-5 h-5 text-white" />
 
           <span className="absolute top-2 right-2 w-2 h-2 rounded-full bg-pink-500" />
@@ -44,7 +44,7 @@ export default function DashboardNavbar({
 
         <div className="w-10 h-10 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white flex items-center justify-center font-bold">
           A
-        </div>
+        </div> */}
 
       </div>
     </header>
