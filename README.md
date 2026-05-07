@@ -18,7 +18,7 @@ CineTube is built with a scalable architecture using **Next.js**, **TypeScript**
 
 ## Backend (API)
 
-🔗 Add your backend live URL here
+🔗 https://cinetube-server-three.vercel.app
 
 ---
 
